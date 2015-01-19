@@ -1,105 +1,246 @@
-<!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns#" xmlns:og="http://ogp.me/ns#">
-  <head>
-    <meta charset="utf-8">
-    <title>
-      {% if is_login %}Login
-      {% elif is_home %}{{ site.author }}
-      {% elif is_tag %}{{ tag }}
-      {% elif post %}{{ post.title }}
-      {% endif %}
-      | {{ site.name }}
-    </title>
+<!--<!DOCTYPE html>-->
+<!--<html prefix="og: http://ogp.me/ns#" xmlns:og="http://ogp.me/ns#">-->
+  <!--<head>-->
+    <!--<meta charset="utf-8">-->
+    <!--<title>-->
+      <!--{% if is_login %}Login-->
+      <!--{% elif is_home %}{{ site.author }}-->
+      <!--{% elif is_tag %}{{ tag }}-->
+      <!--{% elif post %}{{ post.title }}-->
+      <!--{% endif %}-->
+      <!--| {{ site.name }}-->
+    <!--</title>-->
 
-    {{ header_meta }}
+    <!--{{ header_meta }}-->
 
-    <link href="{{ assets('css/style.css') }}" rel="stylesheet" />
+    <!--<link href="{{ assets('css/style.css') }}" rel="stylesheet" />-->
 
-    {% if site.analytics %}
-    <script>
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', '{{ site.analytics }}']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-    </script>
-    {% endif %}
-  </head>
-  <body>
+    <!--{% if site.analytics %}-->
+    <!--<script>-->
+    <!--var _gaq = _gaq || [];-->
+    <!--_gaq.push(['_setAccount', '{{ site.analytics }}']);-->
+    <!--_gaq.push(['_trackPageview']);-->
+    <!--(function() {-->
+    <!--var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;-->
+    <!--ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';-->
+    <!--var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);-->
+    <!--})();-->
+    <!--</script>-->
+    <!--{% endif %}-->
+  <!--</head>-->
+  <!--<body>-->
 
-    {% if is_login %}
+    <!--{% if is_login %}-->
 
-      {{ login_form }}
+      <!--{{ login_form }}-->
 
-    {% else %}
-    <div class="wrap">
-      <header class="header">
-        <div class="avatar">
-          <a href="/"><img src="{{ site.avatar }}" class="img-circle" alt="{{ site.author }}" /></a>
-        </div>
-        <div class="nav-logo">
-          <div class="logo">
-            <h1><a href="/" rel="home">{{ site.name }}</a></h1>
-          </div>
-          <nav id="nav">
-            <ul>
-              <li><a href="/">Home</a></li>
-              {% if pages %}
-              {% for page in pages %}
-              <li><a href="{{ page.permalink }}" class="{{ set_active(page.permalink) }}">{{ page.title }}</a></li>
-              {% endfor %}
-              {% endif %}
-            </ul>
-          </nav>
-        </div>
-        <div class="social-icons">
-          <ul>
-            {% if site.twitter %}
-            <li>
-              <a href="{{ site.twitter }}" title="Twitter" target="_blank">
-                <i class="icon-twitter"></i>
-                <span class="hide-text">Twitter</span>
-              </a>
-            </li>
-            {% endif %}
-            {% if site.facebook %}
-            <li>
-              <a href="{{ site.facebook }}" title="Facebook" target="_blank">
-                <i class="icon-facebook"></i>
-                <span class="hide-text">Facebook</span>
-              </a>
-            </li>
-            {% endif %}
-            {% if site.googleplus %}
-            <li>
-              <a href="{{ site.googleplus }}?rel=author" title="Google+" target="_blank">
-                <i class="icon-google-plus"></i>
-                <span class="hide-text">Google Plus</span>
-              </a>
-            </li>
-            {% endif %}
-            {% if site.linkedin %}
-            <li>
-              <a href="{{ site.linkedin }}" title="LinkedIn" target="_blank">
-                <i class="icon-linkedin"></i>
-                <span class="hide-text">LinkedIn</span>
-              </a>
-            </li>
-            {% endif %}
+    <!--{% else %}-->
+    <!--<div class="wrap">-->
+      <!--<header class="header">-->
+        <!--<div class="avatar">-->
+          <!--<a href="/"><img src="{{ site.avatar }}" class="img-circle" alt="{{ site.author }}" /></a>-->
+        <!--</div>-->
+        <!--<div class="nav-logo">-->
+          <!--<div class="logo">-->
+            <!--<h1><a href="/" rel="home">{{ site.name }}</a></h1>-->
+          <!--</div>-->
+          <!--<nav id="nav">-->
+            <!--<ul>-->
+              <!--<li><a href="/">Home</a></li>-->
+              <!--{% if pages %}-->
+              <!--{% for page in pages %}-->
+              <!--<li><a href="{{ page.permalink }}" class="{{ set_active(page.permalink) }}">{{ page.title }}</a></li>-->
+              <!--{% endfor %}-->
+              <!--{% endif %}-->
+            <!--</ul>-->
+          <!--</nav>-->
+        <!--</div>-->
+        <!--<div class="social-icons">-->
+          <!--<ul>-->
+            <!--{% if site.twitter %}-->
             <!--<li>-->
-              <!--<a href="{{ site.atom_url }}" title="RSS" target="_blank">-->
-                <!--<i class="icon-rss"></i>-->
-                <!--<span class="hide-text">RSS</span>-->
+              <!--<a href="{{ site.twitter }}" title="Twitter" target="_blank">-->
+                <!--<i class="icon-twitter"></i>-->
+                <!--<span class="hide-text">Twitter</span>-->
               <!--</a>-->
             <!--</li>-->
-          </ul>
-        </div>
-      </header>
+            <!--{% endif %}-->
+            <!--{% if site.facebook %}-->
+            <!--<li>-->
+              <!--<a href="{{ site.facebook }}" title="Facebook" target="_blank">-->
+                <!--<i class="icon-facebook"></i>-->
+                <!--<span class="hide-text">Facebook</span>-->
+              <!--</a>-->
+            <!--</li>-->
+            <!--{% endif %}-->
+            <!--{% if site.googleplus %}-->
+            <!--<li>-->
+              <!--<a href="{{ site.googleplus }}?rel=author" title="Google+" target="_blank">-->
+                <!--<i class="icon-google-plus"></i>-->
+                <!--<span class="hide-text">Google Plus</span>-->
+              <!--</a>-->
+            <!--</li>-->
+            <!--{% endif %}-->
+            <!--{% if site.linkedin %}-->
+            <!--<li>-->
+              <!--<a href="{{ site.linkedin }}" title="LinkedIn" target="_blank">-->
+                <!--<i class="icon-linkedin"></i>-->
+                <!--<span class="hide-text">LinkedIn</span>-->
+              <!--</a>-->
+            <!--</li>-->
+            <!--{% endif %}-->
+            <!--&lt;!&ndash;<li>&ndash;&gt;-->
+              <!--&lt;!&ndash;<a href="{{ site.atom_url }}" title="RSS" target="_blank">&ndash;&gt;-->
+                <!--&lt;!&ndash;<i class="icon-rss"></i>&ndash;&gt;-->
+                <!--&lt;!&ndash;<span class="hide-text">RSS</span>&ndash;&gt;-->
+              <!--&lt;!&ndash;</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;</li>&ndash;&gt;-->
+          <!--</ul>-->
+        <!--</div>-->
+      <!--</header>-->
 
-      {% if is_home or is_tag %}
+<!DOCTYPE html>
+<!--[if IE 7]>					<html class="ie7 no-js" lang="en">     <![endif]-->
+<!--[if lte IE 8]>              <html class="ie8 no-js" lang="en">     <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="not-ie no-js" lang="en">  <!--<![endif]-->
+<head>
+    <!-- Google Web Fonts
+  ================================================== -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600italic|Handlee' rel='stylesheet' type='text/css'>
+
+    <!-- Basic Page Needs
+  ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--[if ie]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
+
+    <title>ThinkBridge Software | Blogs</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- Mobile Specific Metas
+  ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+  ================================================== -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/skeleton.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/font-awesome.css" />
+
+    <link rel="stylesheet" href="js/layerslider/css/layerslider.css" />
+    <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" />
+
+    <!-- HTML5 Shiv
+    ================================================== -->
+    <script src="js/jquery.modernizr.js"></script>
+
+</head>
+
+<body class="wide normal pattern-1 color-1">
+
+<div id="wrapper">
+
+    <header id="header">
+
+        <div class="container">
+
+            <div class="eight columns">
+
+                <div id="logo">
+                    <a href="index.html"><img src="../images/logo.png"  alt="logo"></a>
+                </div><!--/ #logo-->
+
+            </div><!--/ .columns-->
+
+            <div class="eight columns">
+
+                <div class="widget widget_contacts">
+
+                    <div class="vcard clearfix">
+
+                        <p class="top-phone">Call Us : <span>+1 651-91 THINK</span></p>
+
+                    </div><!--/ .vcard-->
+
+                    <div class="clear"></div>
+
+                    <ul class="social-icons">
+                        <li class="twitter"><a href="#">Twitter</a></li>
+                        <li class="facebook"><a href="#">Facebook</a></li>
+                        <li class="rss"><a href="#">Rss</a></li>
+                        <li class="vimeo"><a href="#">Vimeo</a></li>
+                        <li class="linkedin"><a href="#">LinkedIn</a></li>
+                    </ul><!--/ .social-icons -->
+
+                </div>
+
+            </div><!--/ .columns-->
+
+            <div class="clear"></div>
+
+            <div class="sixteen columns">
+
+                <div class="menu-container clearfix">
+
+                    <nav id="navigation" class="navigation">
+
+                        <div class="menu">
+                            <ul>
+                                <li class="current-menu-item"><a href="index.html">Home</a>
+                                </li>
+                                <li><a href="#">Clients</a>
+                                    <ul>
+                                        <li><a href="services.html">Services</a></li>
+                                        <li><a href="left-nav.html">Case Studies</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="about-us.html">Our Team</a>
+                                    <ul>
+                                        <li><a href="about-us.html">About Us</a></li>
+                                        <li><a href="faq.html">Explore Opportunities</a></li>
+                                        <li><a href="about-us.html">Advisory Board</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="typography.html">Investors</a>
+                                    <ul>
+                                        <li><a href="ideaacademy.html">Idea Academy</a></li>
+                                        <li><a href="faq.html">Explore Opportunities</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="blog.html">Insights</a>
+                                </li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+
+                    </nav><!--/ .navigation-->
+
+                    <div class="search-wrapper">
+
+                        <form method="post" action="/">
+
+                            <p>
+                                <input name="s" id="s" type="text">
+                                <button type="submit" class="submit-search">Search</button>
+                            </p>
+
+                        </form>
+
+                    </div><!--/ .search-wrapper-->
+
+                </div><!--/ .menu-container-->
+
+            </div><!--/ .columns-->
+
+        </div><!--/ .container-->
+
+    </header><!--/ #header-->
+
+
+    {% if is_home or is_tag %}
       <div class="post-area">
 
         {% if is_tag %}
